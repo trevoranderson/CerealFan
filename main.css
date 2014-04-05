@@ -60,3 +60,15 @@ body {
 .inc {
   cursor: pointer;
 }
+
+img {
+width: 75px;
+height: 75px;
+}
+.review {
+	border: 2px solid black;
+}
+
+.cats {
+	border: 2px solid blue;
+}

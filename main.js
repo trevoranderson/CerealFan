@@ -93,10 +93,11 @@ if (Meteor.isServer) {
         Players.insert({name: names[i], score: randomScore() });
     }
     if (Reviews.find().count() === 0) {
-      var products = ["CaptainCrunch","YuppyCereal"];
+      var products = ["CaptainCrunch","YuppieCereal"];
+	  var images = ["captaincrunch.gif","yuppiecereal.jpg"];
       for(var i =0; i < products.length; i+=1){
-        Reviews.insert( {name: products[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1}]} );
-      }
+        Reviews.insert( {name: products[i], imgPath: images[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1}]} );
+      } 
     }
   });
 }

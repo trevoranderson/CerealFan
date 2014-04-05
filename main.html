@@ -3,6 +3,11 @@
 </head>
 	
 <body>
+	<div class="span5">
+    	<div style="float: right">
+        	{{> loginButtons align="right"}}
+    	</div>
+	</div>
   <div id="outer">
   {{> leaderboard}}
   {{> addPlayer}}
@@ -48,20 +53,24 @@
 </template>
 
 <template name="reviews">
-   {{#each dbreviews}}
-   {{> reviewformat}}
+  {{#each dbreviews}}
+    <div class = "review">
+		{{> reviewformat}}
+	</div>
    {{/each}}
 </template>
 
 <template name="reviewformat">
-  <div class="review">
-	  <span class="name">{{name}}</span>
-	  <img src= {{imgPath}} />
-	{{#each cats}}
-	<br><span class="catname">{{catname}}</span><br>
-	<span class="catname">{{weight}}</span><br>
-	<span class="catname">{{isPositive}}</span><br>
-	<span class="numratings">{{numRatings}}</span>
+<div class="review">
+	 <img src= {{imgPath}} />
+	 <span class="name">{{name}}</span>
+	 {{#each cats}}
+	<div class = "cats">
+  	  <br><span class="catname">{{catname}}</span><br>
+	  <span class="catname">{{weight}}</span><br>
+	  <span class="catname">{{isPositive}}</span><br>
+	  <span class="numratings">{{numRatings}}</span>
+	</div>
 	{{/each}}
-   </div>
+  </div>
 </template>
