@@ -3,6 +3,7 @@
 </head>
 	
 <body>
+	<div class="backgroundBuddy"></div>
 	<img id="splash" src = "splash.png"/>
 	<div class="span5">
     	<div style="float: right">
@@ -11,8 +12,6 @@
 	</div>
 	<div id="outer">
   {{> reviews}} 
-  {{> leaderboard}}
-  {{> addPlayer}}
   </div>
 </body>
 <template name="leaderboard">
@@ -75,8 +74,8 @@
 <div id = "smartsearch"></div>
 
   <fieldset class="isPositive">
-		<input type="radio" id="like" name="isPositive" value="1"/> <label for="like" title="Good!"> Good </label>
-		<input type="radio" id="hate" name="isPositive" value="-1"/> <label for="hate" title="Bad."> Bad </label>
+		<input type="radio" id="like" name="isPositive" value="1"/> <label for="like" title="Good!"><p id="like2"> Good </p> </label>
+		<input type="radio" id="hate" name="isPositive" value="-1"/> <label for="hate" title="Bad."><p id="hate2"> Bad </p> </label>
   </fieldset>
   <input id="done" type="submit" value="Done"/>
   <input id="submit" type="button" class="append"  value="Submit Another"/>

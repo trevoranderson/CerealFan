@@ -1,7 +1,7 @@
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
 
-Players = new Meteor.Collection("players");
+//Players = new Meteor.Collection("players");
 Reviews = new Meteor.Collection("reviews");
 
 if (Meteor.isClient) {
@@ -41,7 +41,7 @@ if (Meteor.isClient) {
 
 
 
-  Template.leaderboard.players = function () {
+ /* Template.leaderboard.players = function () {
     var togg = Session.get("sort_by");
     if (togg === "score"){
        return Players.find({}, {sort: {score: -1}});
@@ -49,12 +49,12 @@ if (Meteor.isClient) {
         return Players.find({}, {sort: {name: 1}});
     }
   };
-
+*/
   Template.reviews.dbreviews = function () {
     return Reviews.find({}, {sort: {name: 1}});
   };
 
-  Template.leaderboard.selected_name = function () {
+  /*Template.leaderboard.selected_name = function () {
     var player = Players.findOne(Session.get("selected_player"));
     return player && player.name;
   };
@@ -68,7 +68,7 @@ if (Meteor.isClient) {
       Session.set("selected_player", this._id);
     }
   });
-
+*/
  Template.reviews.events({
     'keydown': function (){
 		// Code to do smart search goes HERE
@@ -90,7 +90,7 @@ if (Meteor.isClient) {
 	}
   });
 
-  Template.leaderboard.events({
+  /*Template.leaderboard.events({
     'click input.inc': function () {
       Players.update(Session.get("selected_player"), {$inc: {score: 5}});
     },
@@ -130,7 +130,7 @@ if (Meteor.isClient) {
     }
   };
 
-
+*/
   Template.reviews.selected_reviews = function () {
     return Session.equals("selected_review", this._id);
 	/*
@@ -189,7 +189,7 @@ var randomScore = function()
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    if (Players.find().count() === 0) {
+  /*  if (Players.find().count() === 0) {
       var names = ["Ada Lovelace",
                    "Grace Hopper",
                    "Marie Curie",
@@ -198,12 +198,12 @@ if (Meteor.isServer) {
                    "Claude Shannon"];
       for (var i = 0; i < names.length; i++)
         Players.insert({name: names[i], score: randomScore() });
-    }
+    }*/
     if (Reviews.find().count() === 0) {
-      var products = ["CaptainCrunch","YuppieCereal"];
-	  var images = ["captaincrunch.gif","yuppiecereal.jpg"];
+      var products = ["Captain Crunch","Trix", "Chex Mix", "Lucky Charms"];
+	  var images = ["captaincrunch.gif","trix.jpg","chexmix.jpg","luckycharms.jpg" ];
       for(var i =0; i < products.length; i+=1){
-        Reviews.insert( {name: products[i], imgPath: images[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1, numPos: 1}]} );
+        Reviews.insert( {name: products[i], imgPath: images[i], cats: [{weight: 0, catname: "Cost", isPositive: -1, numRatings : 1, numPos: 1}]} );
       } 
     }
   });

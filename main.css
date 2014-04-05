@@ -1,4 +1,8 @@
 body {
+	background-image: url('background.jpg');
+	background-repeat:no-repeat;
+	background-position:80% 50%;
+	background-attachment:fixed;
 	background-color: #bdc3c7;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 200;
@@ -18,6 +22,7 @@ body {
 }
 
 #splash {
+	border-radius: 15px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -158,6 +163,7 @@ body {
 }
 
 #cat_text {
+	color: white;
 	display: inline-block;
 	vertical-align: top;
 	margin: 10px 0px 0px 0px;
@@ -246,6 +252,29 @@ body {
     margin-right: 20px;
 }
 
+#like2 {
+	display: inline-block;
+	color: white;
+}
+
+#hate2 {
+	display: inline-block;
+	color: white;
+}
+
+.backgroundBuddy {
+	background-color: black;
+	opacity: .7;
+	top: 0%;
+	left: 26%;
+	width: 700px;
+	height: 2000px;
+	position:50% 50%;
+	z-index: -1;
+    position:fixed;	
+}
+
 #smartsearch {
+	color: white;
 	margin-bottom: 10px;
 }
