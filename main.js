@@ -71,8 +71,21 @@ if (Meteor.isClient) {
 
  Template.reviews.events({
     'keydown': function (){
-		console.log("gtfo");
 		// Code to do smart search goes HERE
+		var txt = document.getElementsByName('catname')[0].value;
+		console.log(txt);
+		var obj = Reviews.findOne({_id: this._id});
+console.log(obj);
+		var mycats = obj.cats;
+console.log(mycats);
+		var outputs = substrings(txt, mycats);
+console.log(outputs);
+		if(outputs.length === 0){
+		}
+		else{
+			document.getElementById("smartsearch").innerHTML = outputs[0]; 
+			//smartsearch.value = outputs[0];
+		}
 	}
   });
 
@@ -155,6 +168,11 @@ if (Meteor.isClient) {
 		event.preventDefault();
 	}});
 
+}
+//return a list of strings from the haystack that have needle as a substring
+function substrings(needle,haystack)
+{
+	return ["grape soda"];
 }
 var randomScore = function()
 {
