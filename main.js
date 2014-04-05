@@ -39,7 +39,7 @@ if (Meteor.isClient) {
 
     'click input.changesort': function(){
      var switch_sort = Session.equals("sort_by", "name")?"score":"name";
-     Session.set("sort_by", switch_sort);  
+     Session.set("sort_by", switch_sort);
      var togg = Session.get("sort_by");
      if (togg === "score"){
            Players.find({}, {sort: {score: -1}});
@@ -95,7 +95,7 @@ if (Meteor.isServer) {
     if (Reviews.find().count() === 0) {
       var products = ["CaptainCrunch","YuppyCereal"];
       for(var i =0; i < products.length; i+=1){
-        Reviews.insert( {name: products[i], cats: [{weight: 0, catname: "tastyness", isPositive: true}]} );
+        Reviews.insert( {name: products[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1}]} );
       }
     }
   });

@@ -1,7 +1,7 @@
 <head>
   <title>Leaderboard</title>
 </head>
-
+	
 <body>
   <div id="outer">
   {{> leaderboard}}
@@ -49,16 +49,19 @@
 
 <template name="reviews">
    {{#each dbreviews}}
-      {{> reviewformat}}
-    {{/each}}
+   {{> reviewformat}}
+   {{/each}}
 </template>
-
 
 <template name="reviewformat">
   <div class="review">
-	<span class="name">{{name}}</span>
+	  <span class="name">{{name}}</span>
+	  <img src= {{imgPath}} />
 	{{#each cats}}
-          <span class="catname">{{catname}}</span>
+	<br><span class="catname">{{catname}}</span><br>
+	<span class="catname">{{weight}}</span><br>
+	<span class="catname">{{isPositive}}</span><br>
+	<span class="numratings">{{numRatings}}</span>
 	{{/each}}
-  </div>
+   </div>
 </template>
