@@ -86,20 +86,29 @@
    {{/each}}
 </template>
 
-<template name="singleReview">
-</template>
-
 <template name="reviewformat">
-<div class="review">
 	 <img src= {{imgPath}} />
+	 <div class="name_frame">
 	 <span class="name">{{name}}</span>
+	 </div>
 	 {{#each cats}}
-	<div class = "cats">
-  	  <br><span class="catname">{{catname}}</span><br>
-	  <span class="catname">{{weight}}</span><br>
-	  <span class="catname">{{isPositive}}</span><br>
-	  <span class="numratings">{{numRatings}}</span>
+		<div class = "cats">
+    <div class = "circle_good">
+      <img width="60px" height="60px" src="greenbigarrow.png"/>
+      <div class="catname">{{catname}}</div>
+    </div>
+    <div class = "circle_okay">
+      <img width="60px" height="60px" src="greensmallarrow.png"/>
+      <div class="catname">{{catname}}</div>
+    </div>
+	<div class = "circle_terrible">
+      <img width="60px" height="60px" src="redbigarrow.png"/>
+  	  <div class="catname">{{catname}}</div>
+	</div>
+    <div class = "circle_bad"> 
+	  <img width="60px" height="60px" src="redsmallarrow.png"/>
+      <div class="catname">{{catname}}</div>
+    </div>
 	</div>
 	{{/each}}
-  </div>
 </template>

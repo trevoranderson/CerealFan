@@ -61,71 +61,85 @@ body {
   cursor: pointer;
 }
 
-img {
-width: 75px;
-height: 75px;
-}
-.review {
-	border: 2px solid black;
-}
-
 .cats {
-	border: 2px solid blue;
+
+ }
+
+.name_frame {
+  height: 75px;
+  width: 460px;
+  border: 4px solid #ecf0f1;
+  display: inline-block;
+  border-radius: 4px;
+  vertical-align: top;
+  background-color: #bdc3c7;
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-   follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
+.name {
+  font-weight: 300px;
+  font-size: 50px;
+  font-family: Verdana;
+  line-height: 83px;
+  text-align: left;
+  vertical-align: middle;
+  margin: 0px 0px 0px 20px;
 }
 
-.rating {
-	padding: 0px 400px 0px 0px;
-	border: none;
+.review {
+  border: 15px solid #34495e;
+  margin: 60px auto 60px auto;
+  padding: 6px;
+  border-radius: 6px;
+  background: linear-gradient(#95a5a6, #34495e);
 }
 
-.rating:not(:checked) > label {
-    float:right;
-    width:1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:200%;
-    line-height:1.2;
-    color:#ddd;
-    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+.icon {
+  width: 75px;
+  height: 75px;
+  border: 4px solid #ecf0f1;
+  border-radius: 4px;
 }
 
-.rating:not(:checked) > label:before {
-    content: '★ ';
+.circle_terrible {
+  padding-top: 10px;
+  margin-top: 5px;
+  background: #bdc3c7;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
 }
 
-.rating > input:checked ~ label {
-    color: #f70;
-    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+.circle_bad {
+  padding-top: 10px;
+  margin-top: 5px;
+  background: #bdc3c7;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
 }
 
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: gold;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+.circle_good {
+  padding-top: 10px;
+  margin-top: 5px;
+  background: #bdc3c7;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
 }
 
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
+.circle_okay {
+  padding-top: 10px;
+  margin-top: 5px;
+  background: #bdc3c7;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
 }
