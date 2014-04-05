@@ -5,7 +5,8 @@
 <body>
   <div id="outer">
   {{> leaderboard}}
-  {{> addPlayer}}	
+  {{> addPlayer}}
+  {{> reviews}}
   </div>
 </body>
 <template name="leaderboard">
@@ -44,4 +45,17 @@
         <input type="text" id="playerName" />
         <input type="button" class="add" value="Add Scientist" />
     </div>
+</template>
+
+<template name="reviews">
+   {{#each dbreviews}}
+      {{> reviewformat}}
+    {{/each}}
+</template>
+
+
+<template name="reviewformat">
+  <div class="review">
+    <span class="name">{{name}}</span>
+  </div>
 </template>

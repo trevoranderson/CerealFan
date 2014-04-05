@@ -2,6 +2,7 @@
 // it is backed by a MongoDB collection named "players".
 
 Players = new Meteor.Collection("players");
+Reviews = new Meteor.Collection("reviews");
 
 if (Meteor.isClient) {
   
@@ -12,6 +13,10 @@ if (Meteor.isClient) {
     } else {
         return Players.find({}, {sort: {name: 1}});
     }
+  };
+
+  Template.reviews.dbreviews = function () {
+    return Reviews.find({}, {sort: {name: 1}});
   };
 
   Template.leaderboard.selected_name = function () {
@@ -86,6 +91,12 @@ if (Meteor.isServer) {
                    "Claude Shannon"];
       for (var i = 0; i < names.length; i++)
         Players.insert({name: names[i], score: randomScore() });
+    }
+    if (Reviews.find().count() === 0) {
+      var products = ["CaptainCrunch","YuppyCereal"];
+      for(var i =0; i < products.length; i+=1){
+        Reviews.insert( {name: products[i], cats: [{weight: 0, catname: "tastyness", isPositive: true}]} );
+      }
     }
   });
 }
