@@ -11,6 +11,10 @@ body {
     user-select: none;
 }
 
+.span5 {
+	margin-right: 200px;
+}
+
 #splash {
 	display: block;
 	margin-left: auto;

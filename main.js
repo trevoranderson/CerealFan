@@ -4,7 +4,6 @@
 Players = new Meteor.Collection("players");
 Reviews = new Meteor.Collection("reviews");
 
-
 if (Meteor.isClient) {
   var formBuffer = [];
   function submitDone(input){
