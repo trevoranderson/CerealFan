@@ -61,19 +61,24 @@
 	{{#if selected_reviews}}
 	<div class = "ratinginterface">
 	<div class = "inputcategory">
-	  <input type = "textbox"/>
     </div>
-
- <fieldset class="rating">
-    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Really Important">5 stars</label>
-    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty Important">4 stars</label>
-    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Not too important">3 stars</label>
-    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Pretty insignificant">2 stars</label>
-    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Doesn't matter to me">1 star</label>
+<form id = "rateForm"> 
+	<input id="category 1" name="catname" type = "textbox"/> Category
+<fieldset class="weight">
+    <input type="radio" id="star5" name="weight" value="5" /><label for="star5" title="Really Important">5 stars</label>
+    <input type="radio" id="star4" name="weight" value="4" /><label for="star4" title="Pretty Important">4 stars</label>
+    <input type="radio" id="star3" name="weight" value="3" /><label for="star3" title="Not too important">3 stars</label>
+    <input type="radio" id="star2" name="weight" value="2" /><label for="star2" title="Pretty insignificant">2 stars</label>
+    <input type="radio" id="star1" name="weight" value="1" /><label for="star1" title="Doesn't matter to me">1 star</label>
 </fieldset> 
 <br>
-
-<div>huehuehue</div>
+  <fieldset class="isPositive">
+		<input type="radio" id="like" name="isPositive" value="1"/> <label for="like" title="Good!"> Good </label>
+		<input type="radio" id="hate" name="isPositive" value="-1"/> <label for="hate" title="Bad."> Bad </label>
+  </fieldset>
+  <input type="submit" value="Done"/>
+  <input type="button" class="append"  value="Submit Another"/>
+</form>
 </div>
    {{else}}
    <div> not selected </div>

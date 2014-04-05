@@ -5,7 +5,14 @@ Players = new Meteor.Collection("players");
 Reviews = new Meteor.Collection("reviews");
 
 if (Meteor.isClient) {
-  
+  var formBuffer = [];
+  function submitDone(input){
+		console.log(formBuffer);
+		for(var i in formBuffer){
+			Reviews.update({_id:input._id}, {$push:{cats:formBuffer[i]}});
+		}
+  }   
+
   Template.leaderboard.players = function () {
     var togg = Session.get("sort_by");
     if (togg === "score"){
@@ -87,8 +94,19 @@ if (Meteor.isClient) {
   Template.reviews.events({
 	'click': function() {
 		Session.set("selected_review", this._id);
-	}
-    });
+	},
+	'click input.append' : function(event){
+		var tempForm = submitAnother();
+		formBuffer.push(tempForm);
+		if(formBuffer.length === 4){
+			submitDone(this);
+		}
+		event.preventDefault();
+    },
+	'submit' : function(event){
+		var dude = this;
+		submitDone(this);
+	}});
 
 }
 var randomScore = function()
@@ -117,3 +135,12 @@ if (Meteor.isServer) {
     }
   });
 }
+function submitAnother(){
+	form = {};
+	$.each($('#rateForm').serializeArray(), function(){
+		form[this.name] = this.value;
+	});
+	console.log(form);
+	return form;
+}
+
