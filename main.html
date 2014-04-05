@@ -56,6 +56,9 @@
 
 <template name="reviewformat">
   <div class="review">
-    <span class="name">{{name}}</span>
+	<span class="name">{{name}}</span>
+	{{#each cats}}
+          <span class="catname">{{catname}}</span>
+	{{/each}}
   </div>
 </template>
