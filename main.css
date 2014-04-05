@@ -142,7 +142,6 @@ body {
   display: inline-block;
   text-align: center;
   border-radius: 4px;
-	border: 2px solid blue;
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
