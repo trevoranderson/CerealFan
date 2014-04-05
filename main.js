@@ -28,6 +28,12 @@ if (Meteor.isClient) {
     return Session.equals("selected_player", this._id) ? "selected" : '';
   };
 
+  Template.player.events({
+    'click': function () {
+      Session.set("selected_player", this._id);
+    }
+  });
+
   Template.leaderboard.events({
     'click input.inc': function () {
       Players.update(Session.get("selected_player"), {$inc: {score: 5}});
@@ -68,12 +74,6 @@ if (Meteor.isClient) {
     }
   };
 
-
-  Template.player.events({
-    'click': function () {
-      Session.set("selected_player", this._id);
-    }
-  });
 }
 var randomScore = function()
 {
