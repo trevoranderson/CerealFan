@@ -1,4 +1,5 @@
 body {
+	background-color: #bdc3c7;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 200;
     margin: 50px 0;
@@ -144,6 +145,24 @@ body {
   border-radius: 4px;
 }
 
+#cat_text {
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px 0px 10px 0px;
+}
+
+#category1 {
+	vertical-align: top;
+	margin: 10px 0px 5px 0px;
+}
+
+#rateForm {
+	background-color: #2980b9;
+	border: 10px solid #34495e;
+	border-radius: 6px;
+	padding: 20px 20px 20px 20px;
+}
+
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
@@ -154,7 +173,7 @@ body {
 }
 
 .weight {
-	padding: 0px 400px 0px 0px;
+	display:inline-block;
 	border: none;
 }
 
@@ -200,3 +219,18 @@ body {
     top:2px;
     left:2px;
 }
+
+.isPositive {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#done {
+	margin-right: 20px;
+}
+
+#submit {
+    margin-right: 20px;
+}
+
+

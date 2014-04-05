@@ -59,11 +59,11 @@
 		{{> reviewformat}}	
 	</div>
 	{{#if selected_reviews}}
-	<div class = "ratinginterface">
-	<div class = "inputcategory">
-    </div>
+<div class = "inputcategory"></div>
+<div class = "ratinginterface">
+
 <form id = "rateForm"> 
-	<input id="category 1" name="catname" type = "textbox"/> Category
+	<input id="category1" name="catname" type = "textbox"/><p id="cat_text">Category</p>
 <fieldset class="weight">
     <input type="radio" id="star5" name="weight" value="5" /><label for="star5" title="Really Important">5 stars</label>
     <input type="radio" id="star4" name="weight" value="4" /><label for="star4" title="Pretty Important">4 stars</label>
@@ -76,8 +76,8 @@
 		<input type="radio" id="like" name="isPositive" value="1"/> <label for="like" title="Good!"> Good </label>
 		<input type="radio" id="hate" name="isPositive" value="-1"/> <label for="hate" title="Bad."> Bad </label>
   </fieldset>
-  <input type="submit" value="Done"/>
-  <input type="button" class="append"  value="Submit Another"/>
+  <input id="done" type="submit" value="Done"/>
+  <input id="submit" type="button" class="append"  value="Submit Another"/>
 </form>
 </div>
    {{else}}
