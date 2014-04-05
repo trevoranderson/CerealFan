@@ -5,17 +5,39 @@ Players = new Meteor.Collection("players");
 Reviews = new Meteor.Collection("reviews");
 
 
-var smartSearch = function(){
-console.log("asdf");
-}
-
 if (Meteor.isClient) {
   var formBuffer = [];
   function submitDone(input){
-		console.log(formBuffer);
+//		console.log(formBuffer);
+	
+		var obj = Reviews.findOne({_id:input._id});
+//		console.log(obj);
 		for(var i in formBuffer){
-			Reviews.update({_id:input._id}, {$push:{cats:formBuffer[i]}});
+//			console.log(formBuffer[i].catname);
+//			console.log(obj.cats);
+			var ind = -1;
+			for(var j in obj.cats){
+				if(obj.cats[j].catname == formBuffer[i].catname){
+					 ind = j; 
+					 break;
+				}
+			}
+			if(ind == -1){
+				obj.cats.push(formBuffer[i]);
+				Reviews.update({_id:input._id}, {$set:{"cats":obj.cats}});
+			}else{
+				console.log("HEY BUDDEY");
+				var total = obj.cats[ind].numRatings +1;
+				console.log(obj.cats[ind].numRatings);
+				obj.cats[ind].weight = (((total-1)/total) * obj.cats[ind].weight) + ((1/total) * formBuffer[i].weight);
+				console.log(obj.cats[ind].weight);
+				obj.cats[ind].isPositive = (obj.cats[ind].numPos + formBuffer[i].isPositive) > 0 ? 1 : -1;
+				obj.cats[ind].numPos = obj.cats[ind].numPos + formBuffer[i].isPositive;
+				obj.cats[ind].numRating++; 
+				obj.cats.sort(function(a,b){ return b.weight - a.weight}); 
+				Reviews.update({_id:input._id}, {$set:{ "cats": obj.cats}});
 		}
+	  }
   }   
 
 
@@ -121,6 +143,7 @@ if (Meteor.isClient) {
 		formBuffer.push(tempForm);
 		if(formBuffer.length === 4){
 			submitDone(this);
+			formBuffer.length = 0;
 		}
 		event.preventDefault();
     },
@@ -129,6 +152,8 @@ if (Meteor.isClient) {
 		formBuffer.push(tempForm);
 		var dude = this;
 		submitDone(this);
+		formBuffer.length = 0;
+		event.preventDefault();
 	}});
 
 }
@@ -153,7 +178,7 @@ if (Meteor.isServer) {
       var products = ["CaptainCrunch","YuppieCereal"];
 	  var images = ["captaincrunch.gif","yuppiecereal.jpg"];
       for(var i =0; i < products.length; i+=1){
-        Reviews.insert( {name: products[i], imgPath: images[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1}]} );
+        Reviews.insert( {name: products[i], imgPath: images[i], cats: [{weight: 0, catname: "tastyness", isPositive: 1, numRatings : 1, numPos: 1}]} );
       } 
     }
   });
@@ -163,7 +188,11 @@ function submitAnother(){
 	$.each($('#rateForm').serializeArray(), function(){
 		form[this.name] = this.value;
 	});
-	console.log(form);
+	form['numRatings'] = 1;
+	form['isPositive'] = Number(form['isPositive']);
+	form['weight'] = Number(form['weight']);
+	form['numPos'] = form['isPositive']; 
+//	console.log(form);
 	return form;
 }
 
