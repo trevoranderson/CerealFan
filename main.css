@@ -62,7 +62,7 @@ body {
 }
 
 .cats {
-
+ display: inline-block;
  }
 
 .name_frame {
