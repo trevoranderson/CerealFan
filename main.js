@@ -4,6 +4,11 @@
 Players = new Meteor.Collection("players");
 Reviews = new Meteor.Collection("reviews");
 
+
+var smartSearch = function(){
+console.log("asdf");
+}
+
 if (Meteor.isClient) {
   var formBuffer = [];
   function submitDone(input){
@@ -12,6 +17,8 @@ if (Meteor.isClient) {
 			Reviews.update({_id:input._id}, {$push:{cats:formBuffer[i]}});
 		}
   }   
+
+
 
   Template.leaderboard.players = function () {
     var togg = Session.get("sort_by");
@@ -39,6 +46,13 @@ if (Meteor.isClient) {
     'click': function () {
       Session.set("selected_player", this._id);
     }
+  });
+
+ Template.reviews.events({
+    'keydown': function (){
+		console.log("gtfo");
+		// Code to do smart search goes HERE
+	}
   });
 
   Template.leaderboard.events({

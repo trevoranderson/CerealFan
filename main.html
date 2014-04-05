@@ -3,13 +3,13 @@
 </head>
 	
 <body>
+	<img id="splash" src = "splash.png"/>
 	<div class="span5">
     	<div style="float: right">
 			{{> loginButtons align="right"}}
     	</div>
 	</div>
 	<div id="outer">
-		<h1>TITLE</h1>
   {{> reviews}} 
   {{> leaderboard}}
   {{> addPlayer}}
@@ -63,7 +63,7 @@
 	<div class = "inputcategory">
     </div>
 <form id = "rateForm"> 
-	<input id="category 1" name="catname" type = "textbox"/> Category
+	<input id="category 1" class="catinput" name="catname" type = "textbox"/> Category
 <fieldset class="weight">
     <input type="radio" id="star5" name="weight" value="5" /><label for="star5" title="Really Important">5 stars</label>
     <input type="radio" id="star4" name="weight" value="4" /><label for="star4" title="Pretty Important">4 stars</label>
