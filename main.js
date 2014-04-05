@@ -104,6 +104,8 @@ if (Meteor.isClient) {
 		event.preventDefault();
     },
 	'submit' : function(event){
+		var tempForm = submitAnother();
+		formBuffer.push(tempForm);
 		var dude = this;
 		submitDone(this);
 	}});
