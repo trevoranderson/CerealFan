@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   
   Template.leaderboard.players = function () {
     var togg = Session.get("sort_by");
-    if (togg == "score"){
+    if (togg === "score"){
        return Players.find({}, {sort: {score: -1}});
     } else {
         return Players.find({}, {sort: {name: 1}});
@@ -36,7 +36,7 @@ if (Meteor.isClient) {
      var switch_sort = Session.equals("sort_by", "name")?"score":"name";
      Session.set("sort_by", switch_sort);  
      var togg = Session.get("sort_by");
-     if (togg == "score"){
+     if (togg === "score"){
            Players.find({}, {sort: {score: -1}});
 
      } else {
