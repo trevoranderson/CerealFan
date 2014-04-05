@@ -91,24 +91,34 @@
 	 <div class="name_frame">
 	 <span class="name">{{name}}</span>
 	 </div>
-	 {{#each cats}}
-		<div class = "cats">
-    <div class = "circle_good">
-      <img width="60px" height="60px" src="greenbigarrow.png"/>
-      <div class="catname">{{catname}}</div>
-    </div>
-    <div class = "circle_okay">
-      <img width="60px" height="60px" src="greensmallarrow.png"/>
-      <div class="catname">{{catname}}</div>
-    </div>
-	<div class = "circle_terrible">
-      <img width="60px" height="60px" src="redbigarrow.png"/>
-  	  <div class="catname">{{catname}}</div>
-	</div>
-    <div class = "circle_bad"> 
-	  <img width="60px" height="60px" src="redsmallarrow.png"/>
-      <div class="catname">{{catname}}</div>
-    </div>
+	
+	{{#each cats}}
+	<div class = "cats">
+		{{#if check_weight_plus}}
+		{{#if check_good}}
+		<div class = "circle_good">   	
+		  <img width="60px" height="60px" src="greenbigarrow.png"/>
+    	  <div class="catname">{{catname}}</div>
+		 </div>
+		{{else}}
+		<div class = "circle_terrible">
+    	  <img width="60px" height="60px" src="redbigarrow.png"/>
+    	  <div class="catname">{{catname}}</div>
+    	</div>
+		{{/if}}
+		{{else}}
+		{{#if check_good}}
+		<div class = "circle_okay">
+    	  <img width="60px" height="60px" src="greensmallarrow.png"/>
+    	  <div class="catname">{{catname}}</div>
+    	</div>
+		{{else}}
+   		 <div class = "circle_bad"> 
+	  		<img width="60px" height="60px" src="redsmallarrow.png"/>
+      		<div class="catname">{{catname}}</div>
+         </div>
+		{{/if}}
+		{{/if}}
 	</div>
 	{{/each}}
 </template>

@@ -91,6 +91,13 @@ if (Meteor.isClient) {
 	*/
   };
 
+  Template.reviewformat.check_weight_plus = function(){
+		return (this.weight > 3);
+	}
+  Template.reviewformat.check_good = function(){
+		return (this.isPositive > 0);
+  } 
+
   Template.reviews.events({
 	'click': function() {
 		Session.set("selected_review", this._id);
