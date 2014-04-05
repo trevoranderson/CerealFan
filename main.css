@@ -12,7 +12,9 @@ body {
 }
 
 .span5 {
-	margin-right: 200px;
+	position: fixed;
+	top: 10%;
+	right: 10%;
 }
 
 #splash {
@@ -158,11 +160,12 @@ body {
 #cat_text {
 	display: inline-block;
 	vertical-align: top;
-	margin: 10px 0px 10px 0px;
+	margin: 10px 0px 0px 0px;
 }
 
 #category1 {
 	vertical-align: top;
+	display: inline-block;
 	margin: 10px 0px 5px 0px;
 }
 
@@ -243,4 +246,6 @@ body {
     margin-right: 20px;
 }
 
-
+#smartsearch {
+	margin-bottom: 10px;
+}
