@@ -27,9 +27,9 @@ if (Meteor.isClient) {
 			}else{
 				console.log("HEY BUDDEY");
 				var total = obj.cats[ind].numRatings +1;
-				console.log(obj.cats[ind].numRatings);
+//				console.log(obj.cats[ind].numRatings);
 				obj.cats[ind].weight = (((total-1)/total) * obj.cats[ind].weight) + ((1/total) * formBuffer[i].weight);
-				console.log(obj.cats[ind].weight);
+//				console.log(obj.cats[ind].weight);
 				obj.cats[ind].isPositive = (obj.cats[ind].numPos + formBuffer[i].isPositive) > 0 ? 1 : -1;
 				obj.cats[ind].numPos = obj.cats[ind].numPos + formBuffer[i].isPositive;
 				obj.cats[ind].numRating++; 
@@ -73,14 +73,15 @@ if (Meteor.isClient) {
     'keydown': function (){
 		// Code to do smart search goes HERE
 		var txt = document.getElementsByName('catname')[0].value;
-		console.log(txt);
+	//	console.log(txt);
 		var obj = Reviews.findOne({_id: this._id});
-console.log(obj);
+//console.log(obj);
 		var mycats = obj.cats;
-console.log(mycats);
+//console.log(mycats);
 		var outputs = substrings(txt, mycats);
-console.log(outputs);
+//console.log(outputs);
 		if(outputs.length === 0){
+			document.getElementById("smartsearch").innerHTML = txt;
 		}
 		else{
 			document.getElementById("smartsearch").innerHTML = outputs[0]; 
@@ -172,7 +173,14 @@ console.log(outputs);
 //return a list of strings from the haystack that have needle as a substring
 function substrings(needle,haystack)
 {
-	return ["grape soda"];
+	var ret = [];
+	for(var i in haystack){
+		if(haystack[i].catname.toLowerCase().indexOf(needle.toLowerCase()) != -1){
+			ret.push(haystack[i].catname);
+		}
+	}
+	console.log(ret);
+	return ret;
 }
 var randomScore = function()
 {
