@@ -8,8 +8,8 @@
         	{{> loginButtons align="right"}}
     	</div>
 	</div>
-	<div id="outer">
-  {{> reviews}}
+  <div id="outer">
+  {{> reviews}} 
   {{> leaderboard}}
   {{> addPlayer}}
   </div>
@@ -55,9 +55,17 @@
 <template name="reviews">
   {{#each dbreviews}}
     <div class = "review">
-		{{> reviewformat}}
+		{{> reviewformat}}	
 	</div>
+   {{#if selected_reviews}}
+   <div> selected </div>
+    {{else}}
+   <div> not selected </div>
+   {{/if}}		
    {{/each}}
+</template>
+
+<template name="singleReview">
 </template>
 
 <template name="reviewformat">

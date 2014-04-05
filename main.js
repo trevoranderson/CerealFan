@@ -74,6 +74,22 @@ if (Meteor.isClient) {
     }
   };
 
+
+  Template.reviews.selected_reviews = function () {
+    return Session.equals("selected_review", this._id);
+	/*
+    var review = Reviews.findOne(Session.get("selected_review"));
+	console.log(review && review.name);
+	return review && review.name;
+	*/
+  };
+
+  Template.reviews.events({
+	'click': function() {
+		Session.set("selected_review", this._id);
+	}
+    });
+
 }
 var randomScore = function()
 {
